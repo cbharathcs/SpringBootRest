@@ -40,13 +40,13 @@ public class UserController {
        
         User user = userService.getUser(id);
         if (user == null) {
-           return new ResponseEntity<Object>(new CrudException("User with id " + id  + " not found"), HttpStatus.NOT_FOUND);
+           return new ResponseEntity<Object>(new CrudException("User with id " + id  + " not found").getMessage(), HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity<?> getUpdate(@Valid @RequestBody User user) {
-        System.out.println("Save   :::  "+user.getUserid());
+        
         String str = userService.save(user);
        
         return new ResponseEntity<Object>(str, HttpStatus.OK);

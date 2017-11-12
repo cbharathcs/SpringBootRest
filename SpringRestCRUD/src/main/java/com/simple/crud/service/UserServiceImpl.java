@@ -29,14 +29,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public String save(User user) {
-		System.out.println("Save   :::  "+user.getUserid());
+		
 		repository.save(user);
 		return "User ID :" + user.getUserid() + " Saved successfully";
 	}
 
 	public List<User> allUsers() {
 		List<User> userList = (List<User>) repository.findAll();
-		System.out.println("userList " + userList);
+		
 		return userList;
 	}
 
