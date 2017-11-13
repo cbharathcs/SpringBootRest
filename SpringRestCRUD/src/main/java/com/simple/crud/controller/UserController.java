@@ -44,7 +44,7 @@ public class UserController {
         }
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.PUT)
     public ResponseEntity<?> getUpdate(@Valid @RequestBody User user) {
         
         String str = userService.save(user);
@@ -53,7 +53,7 @@ public class UserController {
     }
 	
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
        
 		 String str = userService.delete(id);
